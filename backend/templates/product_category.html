@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Products
+{% endblock %}
+
+{% block head %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Extract category_id from the URL
+        const urlParts = window.location.pathname.split('/');
+        const categoryId = urlParts[urlParts.length - 3];
+
+        // Fetch products from the API
+        fetch(`http://127.0.0.1:8000/api/categories/${categoryId}/products/`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                console.log('hi mom');
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = ''; // Clear placeholder content
+
+                // Populate the list with products
+                data.forEach(product => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${product.name} - $${product.price}`;
+                    productList.appendChild(listItem);
+                });
+            })
+            .catch(error => console.error('Error fetching products:', error));
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+<li><a href="/categories/">Back<a></li>
+<h2>Products</h2>
+<ul id="product-list">
+    <li>Loading...</li> <!-- Placeholder until data is fetched -->
+</ul>
+{% endblock %}
