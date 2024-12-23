@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .models import Category, Product, User, OrderItem, Order
 from .serializers import CategorySerializer, ProductSerializer, OrderItemSerializer, OrderSerializer
@@ -140,7 +140,8 @@ def send_order_confirmation(request):
                 fail_silently=False,
             )
 
-            return JsonResponse({"message": "Confirmation email sent successfully."}, status=200)
+            return redirect('/')
+            # return JsonResponse({"message": "Confirmation email sent successfully."}, status=200)
 
         except Order.DoesNotExist:
             return JsonResponse({"error": "Order not found."}, status=404)
