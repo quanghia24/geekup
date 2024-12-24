@@ -22,5 +22,5 @@ And the app will run at http://localhost:8000 and pls read the note below
 The database has already been deployed using a free cloud service provider so the query may take a bit of time (may get up to 5s).
 Please bear with it, I'm doing this to faciliate the testing process, so you don't have to setup database connection on your own.
 
-If you are unable to connect with the database. Do me a favor and go the `setting.py` change the connection back to database in your local and using `geekup_exported_script.sql` to create a database in you machine.
+If you are unable to connect with the database. Do me a favor and go the `setting.py` change the connection back to database in your local, next running `geekup_exported_script.sql` in your DBMS to create an MySQL database schema on your machine.
 
