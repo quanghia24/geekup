@@ -93,17 +93,30 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
+# USING THIS IN CASE OF CAN NOT ACCESSING THE DB 
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'my_geekup',
+#         'HOST': 'localhost',
+#         'USER': 'root',
+#         'PORT': 3306,
+#         'PASSWORD': '12345'
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'geekup',
-        'HOST': 'localhost',
-        'USER': 'root',
-        'PORT': 3306,
-        'PASSWORD': '12345'
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': "my_geekup",
+        'USER': "avnadmin",
+        'PASSWORD': "AVNS_4sbbIuBJgW85m8iwWZy",
+        'HOST': "my-restaurant-my-restaurant.i.aivencloud.com",
+        'PORT': "17118"
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
